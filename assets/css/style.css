@@ -10,3 +10,33 @@ header {
     color: purple;
 }
 
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 5%;
+}
+
+#subtitle {
+    margin: 20px;
+    text-align: center;
+}
+
+button {
+    margin: 20px;
+}
+
+#start {
+    background-color: purple;
+    color: white;
+}
+
+#quiz {
+    text-align: center;
+}
