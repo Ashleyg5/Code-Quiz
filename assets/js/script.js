@@ -1,8 +1,8 @@
 var timerEl = document.querySelector("#timer");
-var submitBtn = document.querySelector("#start");
+var startBtn = document.querySelector("#start");
 var count = 75;
 
-submitBtn.addEventListener("click", function() {
+startBtn.addEventListener("click", function() {
  startQuiz();
 });
 
@@ -13,12 +13,8 @@ function startQuiz() {
 
         if(count === 0) {
             clearInterval(timerInterval);
-            sendMessage();
         }
 
     }, 1000);
 }
 
-function sendMessage() {
-    timerEl.textContent = " ";
-}
