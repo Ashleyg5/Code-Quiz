@@ -14,31 +14,23 @@
         <h4 id="timer"></h4>
     </header>
     <main>
-        <h1>Coding Quiz Challenge</h1>
-        <p id="subtitle">Try to answer the following code-related questions within the time 
-       <br> limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
-        <button id="start">Start Quiz</button>
-    <!-- <div id="quiz">
-        <div class="question-container" id="question">
-            Question goes here.
+        <div class="starterContainer">
+             <h1 class="title">Coding Quiz Challenge</h1>
+            <p id="subtitle">Try to answer the following code-related questions within the time 
+            <br> limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+            <button id="start">Start Quiz</button>
         </div>
-        <div class="option-container">
-            <button class="option" id="op1">option1</button>
-            <button class="option" id="op2">option2</button>
-            <button class="option" id="op3">option3</button>
-            <button class="option" id="op4">option4</button>
+        <div id="quizContainer" class="container" style="display: none;">
+            <div id="question" class="question"></div>
+            <button class="option"><input type="radio" name="option" value="1"><span id="opt1"></span></button>
+            <button class="option"><input type="radio" name="option" value="2"><span id="opt2"></span></button>
+            <button class="option"><input type="radio" name="option" value="3"><span id="opt3"></span></button>
+            <button class="option"><input type="radio" name="option" value="4"><span id="opt4"></span></button>
         </div>
-        
-
-
-    </div> -->
-
+        <div id="result" class="container result" style="display: none;">
+        </div>
 </main>
-
-
-
-
-
+<script src="./assets/js/question.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -11,7 +11,8 @@ header {
     color: purple;
 }
 
-main {
+main, 
+div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -38,6 +39,3 @@ button {
     color: white;
 }
 
-#quiz {
-    text-align: center;
-}
