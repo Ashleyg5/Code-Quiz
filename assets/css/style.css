@@ -30,8 +30,10 @@ h1 {
     text-align: center;
 }
 
-button {
+button#start {
     margin: 20px;
+    cursor: pointer;
+    
 }
 
 #start {
@@ -39,3 +41,20 @@ button {
     color: white;
 }
 
+#answerBtns {
+ margin: 10px;
+}
+
+.container {
+    display: flex;
+}
+
+.option:hover {
+    cursor: pointer;
+}
+
+.option {
+    margin: 10px;
+    background-color: purple;
+    color: white;
+}
