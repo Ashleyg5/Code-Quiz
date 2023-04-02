@@ -14,25 +14,18 @@
         <h4 id="timer"></h4>
     </header>
     <main>
-        <div id="starterContainer" data-state="shown">
+        <div id="starterContainer">
              <h1 class="title">Coding Quiz Challenge</h1>
             <p id="subtitle">Try to answer the following code-related questions within the time 
             <br> limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
             <button id="start">Start Quiz</button>
         </div>
-        <div id="quizContainer" class="container" data-state="hidden">
-            <div id="question" class="question">Question</div>
-            <div id="answerBtns" class="btnGrid">
-                <button class="option">Option 1</button>
-                <button class="option">Option 2</button>
-                <button class="option">Option 3</button>
-                <button class="option">Option 4</button>
-            </div>
-            </div>
-        <div id="result" class="container result" data-state="hidden">
+        <div id="quizContainer" class="hidden">
+            <div id="question"></div>
+            <div id="answerBtns"></div>
         </div>
+        <div id="result" class="hidden"></div>
 </main>
-<script src="./assets/js/question.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

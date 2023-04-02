@@ -33,7 +33,9 @@ h1 {
 button#start {
     margin: 20px;
     cursor: pointer;
-    
+    border-radius: 15px;
+    width: 200px;
+    height: 40px;
 }
 
 #start {
@@ -41,20 +43,25 @@ button#start {
     color: white;
 }
 
+#question {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
 #answerBtns {
  margin: 10px;
 }
 
-.container {
-    display: flex;
-}
-
-.option:hover {
+button.option:hover {
     cursor: pointer;
 }
 
-.option {
+button.option {
     margin: 10px;
     background-color: purple;
     color: white;
+    width: 300px;
+    height: 40px;
+    border-radius: 15px;
+    font-weight: 600;
 }
