@@ -1,11 +1,12 @@
 var timerEl = document.querySelector("#timer");
 var startBtn = document.querySelector("#start");
 var count = 75;
-var totalQuestions = question.length;
 var startContainer = document.querySelector("#starterContainer");
 var quizContainer = document.querySelector("#quizContainer");
 var question = document.querySelector("question");
+var result = document.querySelector("#result");
 var qIndex = 0;
+//  innerHTML = ""
 
 var myQuestions = [
     {
@@ -50,35 +51,41 @@ var myQuestions = [
     }
 ];
 
+function startQuiz() {
 
-startBtn.addEventListener("click", function() {
-    startTime();
     startContainer.classList.add("hidden");
     quizContainer.classList.remove("hidden");
-    showQuestion();
-});
+   
 
-function startTime() {
     
-    var timerInterval = setInterval(function() {
-        count--;
-        timerEl.textContent = "Time: " + count;
+    function startTime() {
 
-        if(count === 0) {
-            clearInterval(timerInterval);
-        }
+        var timerInterval = setInterval(function () {
+            count--;
+            timerEl.textContent = "Time: " + count;
 
-    }, 1000);
-    
-};
+            if (count === 0) {
+                clearInterval(timerInterval);
+            }
 
-function showQuestion() {
+        }, 1000);
+    }
+    function newQuestion() {
+
+        question.innerHTML = myQuestions[qIndex].question
+
+
+    }
+
+//  result.classList.remove("hidden");
 
 
 
+    startTime();
+    newQuestion();
 }
 
-  // <button class="option">Option 1</button>
-  // <button class="option">Option 2</button>
-  // <button class="option">Option 3</button>
-  // <button class="option">Option 4</button>
+
+//sound effects on correct/ incorrect
+
+startBtn.addEventListener("click", startQuiz);

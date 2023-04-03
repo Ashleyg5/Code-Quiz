@@ -60,8 +60,21 @@ button.option {
     margin: 10px;
     background-color: purple;
     color: white;
-    width: 300px;
+    width: 200px;
     height: 40px;
     border-radius: 15px;
     font-weight: 600;
+}
+
+.hidden { 
+    display: none;
+}
+
+#result {
+    padding: 10px;
+    border-top: 2px solid gray;
+    padding-right: 15%;
+    margin: 10px;
+    color: gray;
+    font-style: italic;
 }
