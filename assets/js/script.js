@@ -1,3 +1,4 @@
+//var declarations
 var timerEl = document.querySelector("#timer");
 var startBtn = document.querySelector("#start");
 var scoreBtn = document.querySelector("#scorelink");
@@ -5,7 +6,6 @@ var count = 50;
 var startContainer = document.querySelector("#starterContainer");
 var quizContainer = document.querySelector("#quizContainer");
 var question = document.querySelector("#question");
-var result = document.querySelector("#result");
 var opt1 = document.querySelector("#opt1");
 var opt2 = document.querySelector("#opt2");
 var opt3 = document.querySelector("#opt3");
@@ -23,7 +23,7 @@ var playC = new Audio("./assets/audio/correct.mp3");
 var playI = new Audio("./assets/audio/incorrect.wav");
 
 
-var myQuestions = [
+var myQuestions = [ //my question object array beginning
     {
         q: "In which HTML elements do we put in JavaScript code?",
         a: {
@@ -74,27 +74,16 @@ var myQuestions = [
         },
         correctAns: "Cascading Style Sheets"
     }
-];
+];//my question object array end
 
-function newQuestion() {
-
-    question.textContent = myQuestions[qIndex].q;
-    opt1.textContent = myQuestions[qIndex].a[1];
-    opt2.textContent = myQuestions[qIndex].a[2];
-    opt3.textContent = myQuestions[qIndex].a[3];
-    opt4.textContent = myQuestions[qIndex].a[4];
-
-    return;
-
-}
-
+//beginning of my startquiz function
 function startQuiz() {
-
+    //adds class of hidden to the start container
     startContainer.classList.add("hidden");
     quizContainer.classList.remove("hidden");
+    //removes class of hidden to quiz container
 
-
-
+    //start time function which sets the timer 
     function startTime() {
 
         timerInterval = setInterval(function () {
@@ -112,31 +101,25 @@ function startQuiz() {
 
     startTime();
     newQuestion();
-}
+}//end of startquiz function which calls starttime function and newquestion function
 
-backBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-    initials.classList.add("hidden");
-    startContainer.classList.remove("hidden");
-    clearInterval(timerInterval);
-    count = 50;
-    timerEl.textContent = "Time: " + 0;
-});
+//beginning of my newquestion function which cycles through all questions and options
+function newQuestion() {
+
+    question.textContent = myQuestions[qIndex].q;
+    opt1.textContent = myQuestions[qIndex].a[1];
+    opt2.textContent = myQuestions[qIndex].a[2];
+    opt3.textContent = myQuestions[qIndex].a[3];
+    opt4.textContent = myQuestions[qIndex].a[4];
 
 
-initialBtn.addEventListener("click", function () {
-    var scores = JSON.parse(localStorage.getItem("scores")) || [];
-    scores.push({ name: input.value, score: count });
-    localStorage.setItem("scores", JSON.stringify(scores));
-    endGame();
-})
 
-function endGame () {
+}//end of my newquestion function
 
-}
-
+//startbtn event listner which begins the first function, startquiz
 startBtn.addEventListener("click", startQuiz);
 
+//answerbtn event listener which contains if statements that check for incorrect/correct answers and shows the current timer count 
 answerBtn.addEventListener("click", function (event) {
 
 
@@ -149,23 +132,24 @@ answerBtn.addEventListener("click", function (event) {
     if (userChoice !== correctAns) {
         count -= 10;//shorthand for count= count - 10
         timerEl.textContent = "Time: " + count;
-        playI.play()
+        playI.play()//incorrect sound variable
 
         if (count <= 0) {
             clearInterval(timerInterval);
             alert("Times Up!");
             score = 0;
         }
-    } else { 
-    playC.play() }
-    qIndex++
+    } else {
+        playC.play()
+    }//correct sound variable
+    qIndex++//cycles through the qindex
     if (qIndex >= myQuestions.length) {
         quizContainer.classList.add("hidden");
         initials.classList.remove("hidden");
         timerEl.textContent = "Time: " + count;
         clearInterval(timerInterval);
         document.querySelector("#score").innerText = "YOUR SCORE: " + count;
-        
+
         if (count <= 0) {
             clearInterval(timerInterval);
             alert("Times Up!");
@@ -175,28 +159,18 @@ answerBtn.addEventListener("click", function (event) {
     }
 
     newQuestion();
-    
+
+})//end of answerbtn event listener 
+
+//initialbtn event listener which logs the scores to the local storage
+initialBtn.addEventListener("click", function () {
+    var scores = JSON.parse(localStorage.getItem("scores")) || [];
+    scores.push({ name: input.value, score: count });
+    localStorage.setItem("scores", JSON.stringify(scores));
+
 })
 
-scoreBtn.addEventListener("click", function() {
-    startContainer.classList.add("hidden");
-    highscore.classList.remove("hidden");
-
-    const string = localStorage.getItem("scores");
-    const array = JSON.parse(string);
-    console.log(array);
-    const ul = document.createElement('ul');
-    for(let i = 0; i < array.length; i++){
-      const li = document.createElement('li');
-      const text = document.createTextNode(`${array[i].name} : ${array[i].score}`);
-      li.appendChild(text);
-      ul.appendChild(li);
-    }
-   
-    document.getElementById("allscores").appendChild(ul);
-    
-})
-
+//initialbtn event listener (view highscores button at the end of the came) which adds a hidden class to the start container and removes the hidden class from the highscore container displays the saved scores on the page
 initialBtn.addEventListener("click", function () {
     initials.classList.add("hidden");
     highscore.classList.remove("hidden");
@@ -205,22 +179,50 @@ initialBtn.addEventListener("click", function () {
     const array = JSON.parse(string);
     console.log(array);
     const ul = document.createElement('ul');
-    for(let i = 0; i < array.length; i++){
-      const li = document.createElement('li');
-      const text = document.createTextNode(`${array[i].name} : ${array[i].score}`);
-      li.appendChild(text);
-      ul.appendChild(li);
+    for (let i = 0; i < array.length; i++) {
+        const li = document.createElement('li');
+        const text = document.createTextNode(`${array[i].name} : ${array[i].score}`);
+        li.appendChild(text);
+        ul.appendChild(li);
     }
-   
-    document.getElementById("allscores").appendChild(ul); 
+
+    document.getElementById("allscores").appendChild(ul);
 })
 
-//NEED -
-//when timer hits 0, it goes to highscore page
-//when all answers are incorrect, the score needs to be 0 instead of going into the negative numbers
-//timer reflect final number
-//link highscore html to start as soon as the game is finished
-//link localstorage to highscore html
-//set go back button to return to index html
-//set view highscores submit button to pull up the page with all highscores after initials are inputted
+//scorebtn event listener (top left view highscore button) which adds a hidden class to the start container and removes the hidden class from the highscore container, the displays saved scores on page
+scoreBtn.addEventListener("click", function () {
+    startContainer.classList.add("hidden");
+    highscore.classList.remove("hidden");
+
+    const string = localStorage.getItem("scores");
+    const array = JSON.parse(string);
+    console.log(array);
+    const ul = document.createElement('ul');
+    for (let i = 0; i < array.length; i++) {
+        const li = document.createElement('li');
+        const text = document.createTextNode(`${array[i].name} : ${array[i].score}`);
+        li.appendChild(text);
+        ul.appendChild(li);
+    }
+
+    document.getElementById("allscores").appendChild(ul);
+
+})
+
+
+//backbtn event listener (go back button at the end of the game) which adds a class of hidden to the initials element and removes the hidden class on the start container and resets the timer
+backBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    initials.classList.add("hidden");
+    startContainer.classList.remove("hidden");
+    clearInterval(timerInterval);
+    count = 50;
+    timerEl.textContent = "Time: " + 0;
+});
+
+
+
+
+
+
 

@@ -10,17 +10,20 @@
 </head>
 <body>
     <header>
+        <!-- header contains button to view highscores and timer placeholder -->
         <button id="scorelink">View Highscores</button>
         <h4 id="timer"></h4>
     </header>
     <main>
         <div id="starterContainer">
+            <!-- starter container contains the h1 title, the instructions subtitle, and the button to start quiz -->
              <h1 class="title">Coding Quiz Challenge</h1>
             <p id="subtitle">Try to answer the following code-related questions within the time 
             <br> limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
             <button id="start">Start Quiz</button>
         </div>
         <div id="quizContainer" class="hidden">
+            <!-- quiz container div has the div with a placeholder for questions and answer buttons to be populated in JS -->
             <div id="question">Question</div>
                 <div id="answerBtns">  
                     <button class="option" id="opt1">Option 1</button>
@@ -29,10 +32,10 @@
                     <button class="option" id="opt4">Option 4</button>
                 </div>
         </div>
-        <div id="result" class="hidden">CORRECT</div>
         <div id="initials" class="hidden"><p id="score"></p><input id="initialInput" type="text"><button id="goback">Go back</button><button id="initialBtn">View Highscores</button></div>
-        
+        <!-- initials div contains a p element for score to be inputted, as well as the 'go back' and 'view highscores' buttons -->
         <div id="highscore" class="hidden">
+            <!-- highscore div contains the h1 title and a div where the scores will be displayed using JS -->
             <h1 id="scoretitle">HIGHSCORES</h1>
                 <div id="allscores"></div>
 
