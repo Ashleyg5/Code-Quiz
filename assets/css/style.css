@@ -7,7 +7,8 @@ header {
 }
 
 #scorelink {
-    text-decoration: none;
+    border: none;
+    background: white;
     color: purple;
 }
 
@@ -39,7 +40,7 @@ button#start {
 }
 
 #start {
-    background-color: purple;
+    background-color: rgb(138, 52, 138);
     color: white;
 }
 
@@ -48,17 +49,21 @@ button#start {
     font-weight: bold;
 }
 
+div#quizContainer {
+    margin-top: 60px;
+}
+
 #answerBtns {
  margin: 10px;
 }
 
-button.option:hover {
+button:hover {
     cursor: pointer;
 }
 
 button.option {
     margin: 10px;
-    background-color: purple;
+    background-color: rgb(138, 52, 138);
     color: white;
     width: 200px;
     height: 40px;
@@ -77,4 +82,53 @@ button.option {
     margin: 10px;
     color: gray;
     font-style: italic;
+}
+
+#score {
+    font-size: x-large;
+    font-weight: 900;
+    margin: 30px;
+}
+
+#initialInput {
+    border: 2px solid rgb(145, 113, 145);
+    background-color: rgb(145, 113, 145);
+    margin: 20px;
+}
+
+#goback,
+#initialBtn {
+    background-color: rgb(138, 52, 138);
+    color: white;
+    border-radius: 15px;
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+}
+
+/* BEGINNING OF HIGHSCORE HTML */
+
+header#highscore {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+div#allscores {
+    list-style: none;
+    border: 2px solid rgb(145, 113, 145);
+    background-color: rgb(145, 113, 145);
+    margin: 20px;
+    padding: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0px;
 }
