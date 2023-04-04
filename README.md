@@ -25,9 +25,10 @@ THEN I can save my initials and my score``
 This is challenge 4 of the bootcamp. I created a functional coding-quiz using HTML, CSS, and Javascript for functionality. Within the HTML I created several divs with placeholders in headings and buttons, which I later generated on Javascript. Within the CSS, I stylized the page with color, flexboxes, and text. Within the Javascript, I was able to declare all my variables and create several functions and event listeners to make the quiz function. When a user opens the quiz, they are met with a set of instructions and a "start quiz" button. Once clicked, the user will see a timer begin to count down from 50 along with an array of questions. When the user selects an incorrect answer, they are met with a sound effect and 10 seconds removed from the time alloted. Once the last question is answered, user will see their final score and a textbox for them to input their initials. Once initials are inputted, users will click "view highscores" to see a log of all initials and scores.
 
 ## Usage
-[Coding-Quiz](https://ashleyg5.github.io/Password-Generator/)
+[Coding-Quiz](https://ashleyg5.github.io/Coding-Quiz/)
  
-![Password-Generator img](https://user-images.githubusercontent.com/118938942/228973078-52c78ee7-b379-410d-8b84-bac29bffe920.png)
+![Coding-Quiz](https://user-images.githubusercontent.com/118938942/229938640-093b1377-ca70-4a59-8819-3c1ca34c48cf.png)
+
 
 
 ## Credits
